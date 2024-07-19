@@ -1,0 +1,7 @@
+package com.ems.backend.model.repo;
+
+import com.ems.backend.model.entity.Employee;
+
+public class EmployeeRepo implements BaseRepo<Employee, Integer>{
+
+}

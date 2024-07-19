@@ -1,0 +1,55 @@
+package com.ems.backend.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ems.backend.model.dto.EmployeeDto;
+import com.ems.backend.model.entity.Employee;
+import com.ems.backend.model.repo.EmployeeRepo;
+import com.ems.backend.service.EmployeeService;
+
+public class EmployeeServiceImpl implements EmployeeService{
+	
+	@Autowired
+	public EmployeeRepo employeeRepo;
+
+	@Override
+	public EmployeeDto create(EmployeeDto employeeDto) {
+		Employee employee = new Employee(
+					employeeDto.getId(),
+					employeeDto.getFirstName(),
+					employeeDto.getLastName(),
+					employeeDto.getEmail()
+				);
+		
+		Employee result = employeeRepo.save(employee);
+		
+		return null;
+	}
+
+	@Override
+	public EmployeeDto getEmployeeById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EmployeeDto> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EmployeeDto updateEmployee(int id, EmployeeDto employeeDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EmployeeDto deleteEmployee(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

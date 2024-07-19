@@ -1,0 +1,14 @@
+package com.ems.backend.model.entity;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Employee {
+
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String email;
+}	

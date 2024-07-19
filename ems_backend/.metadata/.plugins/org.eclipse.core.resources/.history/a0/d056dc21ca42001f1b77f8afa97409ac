@@ -1,0 +1,7 @@
+package com.ems.backend.service;
+
+import com.ems.backend.service.EmployeeService;
+
+public class EmployeeServiceImpl implements EmployeeService{
+
+}

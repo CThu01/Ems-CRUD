@@ -1,0 +1,14 @@
+package com.ems.backend.util.exception;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
+
+@Aspect
+@Configuration
+public class ValidationHandlerAspect {
+
+	@Pointcut(value = "within(org.springframework.web.bind.annotation.RestController)")
+	public void restApiError() {}
+}

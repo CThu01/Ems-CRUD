@@ -1,0 +1,6 @@
+package com.ems.backend.service;
+
+public class EmployeeService {
+	
+	private int id;
+}

@@ -1,0 +1,14 @@
+package com.ems.backend.model.response;
+
+import java.util.List;
+
+public record ErrorResponse(Type type, List<String> messages) {
+ 
+	public ErrorResponse(Type validation, String message) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public enum Type{
+		Validation, Business, Platform
+	}
+}

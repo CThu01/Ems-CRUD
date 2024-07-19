@@ -1,0 +1,22 @@
+package com.ems.backend.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ems.backend.model.dto.EmployeeDto;
+import com.ems.backend.model.response.ApiResponse;
+
+@Service
+public interface EmployeeService {
+
+	ApiResponse<EmployeeDto> create(EmployeeDto employeeDto);
+	
+	ApiResponse<EmployeeDto> getEmployeeById(int id);
+	
+	List<ApiResponse<EmployeeDto>> getAllEmployee();
+	
+	ApiResponse<EmployeeDto> updateEmployee(int id,EmployeeDto employeeDto);
+	
+	ApiResponse<EmployeeDto> deleteEmployee(int id);
+}

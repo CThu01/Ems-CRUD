@@ -1,0 +1,8 @@
+package com.ems.backend.model.output;
+
+public record ErrorResponse() {
+
+	public enum Type{
+		Validation, Business, Platform
+	}
+}

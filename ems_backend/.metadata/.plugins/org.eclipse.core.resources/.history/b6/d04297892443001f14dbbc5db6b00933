@@ -1,0 +1,5 @@
+package com.ems.backend.util.exception;
+
+public class ApiBusinessException extends RuntimeException{
+
+}

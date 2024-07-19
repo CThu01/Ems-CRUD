@@ -1,0 +1,5 @@
+package com.ems.backend.model.output;
+
+public record ApiResponse<T>(boolean status,T payload) {
+
+}

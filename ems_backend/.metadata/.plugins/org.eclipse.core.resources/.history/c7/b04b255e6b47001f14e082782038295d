@@ -1,0 +1,12 @@
+package com.ems.backend;
+
+import org.junit.jupiter.api.Test;
+
+public class JwtSecretKeyMaker {
+	
+	@Test
+	public void generateSecretKey() {
+		
+	}
+
+}

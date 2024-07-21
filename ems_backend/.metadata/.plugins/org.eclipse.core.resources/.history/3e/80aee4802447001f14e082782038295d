@@ -1,0 +1,23 @@
+package com.ems.backend.service.impl;
+
+import com.ems.backend.model.dto.UserDto;
+import com.ems.backend.model.entity.User;
+import com.ems.backend.service.UserService;
+
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public UserDto createUser(UserDto userDto) {
+		
+		User user = new User(
+				 userDto.getId(),
+				 userDto.getUsername(),
+				 userDto.getPasswrod(),
+				 userDto.getEmail(),
+				 userDto.getRole()
+				);
+		
+		return null;
+	}
+
+}

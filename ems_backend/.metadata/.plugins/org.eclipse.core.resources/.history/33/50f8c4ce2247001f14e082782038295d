@@ -1,0 +1,7 @@
+package com.ems.backend.model.repo;
+
+import com.ems.backend.model.entity.User;
+
+public interface UserRepo extends BaseRepo<User, Integer>{
+
+}

@@ -1,0 +1,19 @@
+package com.ems.backend.config;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.ems.backend.model.repo.EmployeeRepo;
+
+public class UserDetailService implements UserDetailsService{
+	
+	private EmployeeRepo employeeRepo;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

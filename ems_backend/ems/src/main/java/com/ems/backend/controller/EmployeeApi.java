@@ -29,27 +29,27 @@ public class EmployeeApi {
 
 	@PostMapping
 	public ApiResponse<EmployeeDto> createEmployee(@Validated @RequestBody EmployeeDto employeeDto,BindingResult result){
-		return new ApiResponse<EmployeeDto>(true, employeeService.create(employeeDto));
+		return ApiResponse.success(employeeService.create(employeeDto));
 	}
 	
 	@GetMapping("{id}")
 	public ApiResponse<EmployeeDto> getEmployeeById(@PathVariable("id") int id){
-		return new ApiResponse<EmployeeDto>(true, employeeService.getEmployeeById(id));
+		return ApiResponse.success(employeeService.getEmployeeById(id));
 	}
 	
 	@GetMapping
 	public ApiResponse<List<EmployeeDto>> getAllEmployee(){
-		return new ApiResponse<List<EmployeeDto>>(true, employeeService.getAllEmployee());
+		return ApiResponse.success(employeeService.getAllEmployee());
 	}
 	
 	@PutMapping("{id}")
 	public ApiResponse<EmployeeDto> updateEmployee(@PathVariable("id") int id,@Validated @RequestBody EmployeeDto employeeDto,BindingResult result){
-		return new ApiResponse<EmployeeDto>(true, employeeService.updateEmployee(id, employeeDto));
+		return ApiResponse.success(employeeService.updateEmployee(id, employeeDto));
 	}
 	
 	@DeleteMapping("{id}")
 	public ApiResponse<String> deleteEmployee(@PathVariable("id") int id){
-		return new ApiResponse<String>(true, employeeService.deleteEmployee(id));
+		return ApiResponse.success(employeeService.deleteEmployee(id));
 	}
 	
 	

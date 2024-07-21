@@ -1,0 +1,10 @@
+package com.ems.backend.model.dto;
+
+import com.ems.backend.model.entity.User;
+
+public class UserMapper {
+
+	public static User mapToUser(UserDto userDto) {
+		
+	}
+}

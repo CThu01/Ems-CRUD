@@ -1,0 +1,7 @@
+package com.ems.backend.model.response;
+
+import java.util.Date;
+
+public record ApiResponse<T>(boolean status,T payload) {
+
+}

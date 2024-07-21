@@ -1,0 +1,10 @@
+package com.ems.backend.model.dto;
+
+public class UserDto {
+
+	private int id;
+	private String username;
+	private String passwrod;
+	private String email;
+	private String role;
+}

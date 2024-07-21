@@ -40,22 +40,12 @@ public class UserAccApi {
 				new UsernamePasswordAuthenticationToken(userDto.getUsername(), userDto.getPasswrod()));
 		
 		if(authentication.isAuthenticated()) {
-			return ApiResponse.success(
-					new SignInResponse<String>(
-							userDto.getUsername(), 
-							jwtService.generateToken(myUserDetailService.loadUserByUsername(userDto.getUsername())) 
-					));
+			return ApiResponse.success(new SignInResponse<String>(
+					userDto.getUsername(), 
+					jwtService.generateToken(myUserDetailService.loadUserByUsername(userDto.getUsername()))));
 		} else {
 			throw new ApiBusinessException("Wrong username and password");
 		}
 		
 	}
 }
-
-
-
-
-
-
-
-

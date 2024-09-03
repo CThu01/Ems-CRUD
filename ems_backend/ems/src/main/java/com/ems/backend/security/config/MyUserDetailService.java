@@ -7,11 +7,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-import com.ems.backend.model.entity.MyUser;
+import com.ems.backend.model.entity.MyUserAccount;
 import com.ems.backend.model.repo.UserRepo;
 import com.ems.backend.util.exception.ApiBusinessException;
 
+@Service
 public class MyUserDetailService implements UserDetailsService{
 	
 	@Autowired
@@ -20,12 +22,13 @@ public class MyUserDetailService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Optional<MyUser> userObj = userRepo.findByUserName(username);
+		Optional<MyUserAccount> userObj = userRepo.findByEmail(username);
 		
 		if(userObj.isPresent()) {
-			MyUser userFromDataBase =  userObj.get();
+			MyUserAccount userFromDataBase =  userObj.get();
+			
 			return User.builder()
-					 		.username(userFromDataBase.getUsername())
+					 		.username(userFromDataBase.getEmail())
 					 		.password(userFromDataBase.getPassword())
 					 		.roles(getRole(userFromDataBase))
 					 		.build();
@@ -36,11 +39,12 @@ public class MyUserDetailService implements UserDetailsService{
 		
 	}
 
-	private String[] getRole(MyUser userFromDataBase) {
+	private String[] getRole(MyUserAccount userFromDataBase) {
 		
 		if(userFromDataBase.getRole() == null) {
 			return new String[] {"MEMBER"};
 		}
+		
 		return userFromDataBase.getRole().split(",");
 	}
 

@@ -1,8 +1,0 @@
-package com.ems.backend.util.exception;
-
-public class ApiValidationException extends RuntimeException{
-
-
-	private static final long serialVersionUID = 1L;
-
-}

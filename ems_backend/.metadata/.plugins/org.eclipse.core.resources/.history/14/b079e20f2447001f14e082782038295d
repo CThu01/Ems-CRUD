@@ -1,7 +1,0 @@
-package com.ems.backend.service.impl;
-
-import com.ems.backend.service.UserService;
-
-public class UserServiceImpl implements UserService{
-
-}

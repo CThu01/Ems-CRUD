@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="JwtSecretKeyMaker" project="ems" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.ems.backend.JwtSecretKeyMaker" time="0.019" displayname="JwtSecretKeyMaker" uniqueid="[engine:junit-jupiter]/[class:com.ems.backend.JwtSecretKeyMaker]">
-    <testcase name="generateSecretKey" classname="com.ems.backend.JwtSecretKeyMaker" time="0.019" displayname="generateSecretKey()" uniqueid="[engine:junit-jupiter]/[class:com.ems.backend.JwtSecretKeyMaker]/[method:generateSecretKey()]"/>
-  </testsuite>
-</testrun>

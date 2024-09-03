@@ -1,21 +1,32 @@
 package com.ems.backend.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.ems.backend.model.dto.EmployeeDto;
+import com.ems.backend.model.dto.request.EmployeeDto;
+import com.ems.backend.model.dto.response.DynamicSearchDto;
+import com.ems.backend.model.dto.response.EmployeeDtoResponse;
 
 @Service
 public interface EmployeeService {
 
-	EmployeeDto create(EmployeeDto employeeDto);
+	EmployeeDtoResponse create (EmployeeDto employeeDto,MultipartFile photo) throws IOException;
 	
-	EmployeeDto getEmployeeById(int id);
+	EmployeeDtoResponse getEmployeeById(int id);
 	
-	List<EmployeeDto> getAllEmployee();
+	List<EmployeeDtoResponse> getAllEmployee();
 	
-	EmployeeDto updateEmployee(int id,EmployeeDto employeeDto);
+	EmployeeDtoResponse updateEmployee(int id,EmployeeDto employeeDto,MultipartFile photo) throws IOException;
 	
 	String deleteEmployee(int id);
+	
+	List<DynamicSearchDto> search(String keyword);
+	
 }
+
+
+
+

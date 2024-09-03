@@ -1,0 +1,32 @@
+package com.ems.backend.service.listener;
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ems.backend.model.dto.request.HistoryMyUserAccountEvent;
+import com.ems.backend.model.entity.MyUserAccount;
+import com.ems.backend.model.entity.history.MyUserAccountHistory;
+import com.ems.backend.model.repo.history.MyUserAccountHistoryRepo;
+
+@Service
+public class MyUserAccountHistoryListener {
+
+	@Autowired
+	private MyUserAccountHistoryRepo myUserAccountHistoryRepo;
+	
+	
+	public void handle(HistoryMyUserAccountEvent myUserAccount) {
+		
+		MyUserAccountHistory myUserHistory = new MyUserAccountHistory(
+					myUserAccount.getMyUserAccount().getPassword(),
+					myUserAccount.getMyUserAccount().getEmail(),
+					myUserAccount.getMyUserAccount().getAcitve(),
+					myUserAccount.getMyUserAccount().getRole(),
+					1,
+					new Date().getTime(),
+					
+				);
+	}
+}

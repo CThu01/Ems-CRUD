@@ -1,7 +1,0 @@
-package com.ems.backend.model.repo;
-
-import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
-
-public interface BaseRepo<T,ID> extends JpaRepositoryImplementation<T, ID>{
-
-}

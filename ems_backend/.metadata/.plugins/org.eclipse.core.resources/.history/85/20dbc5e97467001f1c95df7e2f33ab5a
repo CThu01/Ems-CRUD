@@ -1,0 +1,5 @@
+package com.ems.backend.model.dto.request;
+
+public class HistoryEmployeeDelete {
+
+}

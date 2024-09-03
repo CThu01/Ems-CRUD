@@ -10,12 +10,15 @@ import org.springframework.validation.BindingResult;
 @Configuration
 public class ValidationHandlerAspect {
 
-	@Pointcut(value = "within(org.springframework.web.bind.annotation.RestController)")
-	void apiErrorResult() {}
+	@Pointcut(value = "@within(org.springframework.web.bind.annotation.RestController)")
+	void apiMethod() {}
 	
-	@Before(value = "apiErrorResult() and args(..,result)",argNames = "result")
-	public void adviceWork(BindingResult result) {
+	@Before(value = "apiMethod() and args(..,result)", argNames = "result")
+	public void handle(BindingResult result) {
+		System.out.println("handling");
 		if(result.hasErrors()) {
+			
+			System.out.println("There is validation error " + result.getAllErrors());
 			throw new ApiValidationException(result);
 		}
 	}

@@ -7,4 +7,5 @@ import com.ems.backend.model.entity.Employee;
 @Repository
 public interface EmployeeRepo extends BaseRepo<Employee, Integer>{
 
+	
 }

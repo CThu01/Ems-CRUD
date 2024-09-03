@@ -1,8 +1,0 @@
-package com.ems.backend.security.jwt;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class JwtService {
-
-}

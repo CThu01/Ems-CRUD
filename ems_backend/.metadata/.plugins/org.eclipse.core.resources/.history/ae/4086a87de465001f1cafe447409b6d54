@@ -1,0 +1,42 @@
+package com.ems.backend.service.impl;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+@Service
+public class FileService {
+
+	@Value("${ems.file.folder}")
+	private String fileDirectory;
+	
+	private static final String FILE_FORMAT = "p_%06d_%s_.%s";
+	private static final DateTimeFormatter DF = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+	
+	public String save(int id,MultipartFile photo) throws IOException {
+		
+		String employeeDirectory = fileDirectory + id;
+		
+		Path employeeDirPath = Path.of(employeeDirectory);
+		
+		if(!Files.exists(employeeDirPath)) {
+			Files.createDirectories(employeeDirPath);
+		}
+		
+		
+		
+		return null;
+	}
+	
+	private String getEmployeeFileName() {
+		
+	}
+}
+
+
+

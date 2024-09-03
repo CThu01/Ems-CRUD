@@ -1,0 +1,13 @@
+package com.ems.backend.model.dto.request;
+
+import com.ems.backend.model.entity.Department;
+import com.ems.backend.model.entity.Employee;
+import com.ems.backend.model.entity.Position;
+
+public class HistoryEmployeeDelete {
+
+	Employee employee;
+	Position position;
+	Department department;
+	String email;
+}

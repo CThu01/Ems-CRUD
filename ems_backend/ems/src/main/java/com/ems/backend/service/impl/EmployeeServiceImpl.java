@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ import com.ems.backend.model.repo.DepartmentRepo;
 import com.ems.backend.model.repo.EmployeeRepo;
 import com.ems.backend.model.repo.PositionRepo;
 import com.ems.backend.model.repo.UserRepo;
-import com.ems.backend.security.jwt.JwtService;
+//import com.ems.backend.security.jwt.JwtService;
 import com.ems.backend.service.EmployeeService;
 import com.ems.backend.util.exception.ApiBusinessException;
 
@@ -55,6 +56,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 	@Autowired
 	private FileService fileService;
+	
+	@Autowired
+	private ModelMapper mapper;
 
 	@Override
 	public EmployeeDtoResponse create(EmployeeDto employeeDto,MultipartFile photo) throws IOException {
@@ -84,7 +88,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 		Employee employee = employeeRepo.findById(id).orElseThrow(() -> new ApiBusinessException("Employee doesn't exit"));
 		
-		return employeeMapper.mapToEmployeeDtoResponse(employee);
+//		mapper.map(employee, EmployeeDtoResponse.class);
+		return mapper.map(employee, EmployeeDtoResponse.class);
 	}
 
 	@Override

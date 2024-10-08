@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import com.ems.backend.model.response.ErrorResponse;
 import com.ems.backend.model.response.ErrorResponse.Type;
@@ -36,6 +37,13 @@ public class ExceptionHandling {
 	ErrorResponse handle(ApiBusinessException e) {
 		logger.error(e.getMessage());
 		return new ErrorResponse(Type.Business, List.of(e.getMessage()));
+	}
+	
+	@ExceptionHandler
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	ErrorResponse handle(NoResourceFoundException e) {
+		logger.error(e.getLocalizedMessage());
+		return new ErrorResponse(Type.Business,e.getLocalizedMessage());
 	}
 	
 	

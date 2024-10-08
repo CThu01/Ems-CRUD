@@ -1,8 +1,0 @@
-insert into department (name) values ("HR");
-
-insert into position (name) values ("HR manager");
-
-insert into employee (address,dob,passport,salary,start_date,username,department_id,position_id) values ("839/B MaMaGyi Street, SanCh
-aung Tsp, Yangon",1728302583237,"MH 238961",5000000,1724595613341,"Mrs.Jenny Trump",1,1);
-
-insert into my_user_account (active,email,password,role,employee_id) values ("true","jenny@gmail.com","$2a$10$1KoGgAlwg59xMgqZIUVWXO8Hsjz97d06jjVvLl01lxhaEUuxpXSeK","Admin,Member",1);

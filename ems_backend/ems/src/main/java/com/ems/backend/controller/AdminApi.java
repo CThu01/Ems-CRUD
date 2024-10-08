@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,6 +44,7 @@ public class AdminApi {
 	private UserService userService;
 
 	@PostMapping
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public ApiResponse<EmployeeDtoResponse> createEmployee(
 			@RequestParam("photo") MultipartFile photo,
 			@Validated @ModelAttribute EmployeeDto employeeDto,BindingResult result) throws IOException{
@@ -63,7 +68,7 @@ public class AdminApi {
 			@Validated @ModelAttribute EmployeeDto employeeDto,BindingResult result) throws IOException{
 		return ApiResponse.success(employeeService.updateEmployee(id, employeeDto,photo));
 	}
-	
+	 
 	@DeleteMapping("{id}")
 	public ApiResponse<String> deleteEmployee(@PathVariable("id") int id){
 		return ApiResponse.success(employeeService.deleteEmployee(id));
@@ -71,6 +76,15 @@ public class AdminApi {
 	
 	@GetMapping("search/{keyword}")
 	public ApiResponse<List<DynamicSearchDto>> searchWithKeyword(@PathVariable("keyword") String keyword){
+		
+		System.out.println(" Therad Name : " +Thread.currentThread().getName());
+		
+		try {
+			Thread.sleep(1000);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return ApiResponse.success(employeeService.search(keyword));
 	}
 	
